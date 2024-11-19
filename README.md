@@ -1,11 +1,7 @@
 # infiniteshapes
-ege sarvan ist cool!!!!!!!!!!!!!!
+Teammitglieder: Ege, Darko, David, Andi, Florian
 
+Unity Version: 6000.0.25f1 (BITTE NICHT NEUER ODER ÄLTER)
 
-Darko
-
-
-Florian Schmidt
-
-
-David ich grüße euch vom ganzen Herzen
+Wie weit ist das Game?
+Status: Ideen probieren!
