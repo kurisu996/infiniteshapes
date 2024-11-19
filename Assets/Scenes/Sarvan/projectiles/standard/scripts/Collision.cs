@@ -1,9 +1,37 @@
 using UnityEngine;
 
 public class Collision : MonoBehaviour {
+    GameObject player;
+    
+    void Start(){
+        player = GameObject.Find("Player");
+    }
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Confusion") || collision.gameObject.CompareTag("Clear")) {
+        if (collision.gameObject.CompareTag("Obstacle")) {
             // Debug.Log(gameObject.name + " collided with: " + collision.gameObject.name);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Confusion")){
+            player.GetComponent<Movement>().confused = true;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Clear")){
+            player.GetComponent<Movement>().confused = false;
+            player.GetComponent<Movement>().bleeding = false;
+            player.GetComponent<Movement>().speed = 10f;
+            player.GetComponent<Gun>().corrupted = false;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Cursed")){
+            player.GetComponent<Gun>().cursed = true;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Bleeding")){
+            player.GetComponent<Movement>().bleeding = true;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Corrupted")){
+            player.GetComponent<Gun>().corrupted = true;
             Destroy(gameObject);
         }
     }

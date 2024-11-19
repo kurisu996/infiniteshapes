@@ -4,7 +4,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
     public float speed = 10f;
     private Rigidbody2D rb;
-    [SerializeField] public Boolean confused = false;
+    [SerializeField] public bool confused = false;
+    [SerializeField] public bool bleeding = false;
     Vector2 movement = Vector2.zero;
 
     private void Start() {
@@ -15,6 +16,9 @@ public class Movement : MonoBehaviour {
     private void Update() {
         float movex = Input.GetAxisRaw("Horizontal");
         float movey = Input.GetAxisRaw("Vertical");
+        if (bleeding){
+            speed = 4f;
+        }
         if (confused) {
             movement = new Vector2(movex * -1, movey * -1);
         } else {
@@ -37,12 +41,13 @@ public class Movement : MonoBehaviour {
         }
         if(collision.gameObject.CompareTag("Clear")) {
             confused = false;
+            bleeding = false;
+            speed = 10f;
+            gameObject.GetComponent<Gun>().cursed = false;
+            gameObject.GetComponent<Gun>().corrupted = false;
         }
         if(collision.gameObject.CompareTag("Enemy")) {
             Destroy(gameObject);
-        }
-        if(collision.gameObject.CompareTag("Confusion")) {
-            confused = true;
         }
     }
 }

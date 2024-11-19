@@ -9,6 +9,9 @@ TagManager:
   - Damage
   - Confusion
   - Clear
+  - Cursed
+  - Bleeding
+  - Corrupted
   layers:
   - Default
   - TransparentFX
