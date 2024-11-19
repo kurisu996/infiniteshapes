@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class Movement : MonoBehaviour {
     public float speed = 10f;
     private Rigidbody2D rb;
+    [SerializeField] public Boolean confused = false;
+    Vector2 movement = Vector2.zero;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -12,7 +15,11 @@ public class Movement : MonoBehaviour {
     private void Update() {
         float movex = Input.GetAxisRaw("Horizontal");
         float movey = Input.GetAxisRaw("Vertical");
-        Vector2 movement = new Vector2(movex, movey);
+        if (confused) {
+            movement = new Vector2(movex * -1, movey * -1);
+        } else {
+            movement = new Vector2(movex, movey);
+        }
         rb.linearVelocity = movement * speed;
         rb.angularVelocity = 0f;
 
@@ -28,8 +35,14 @@ public class Movement : MonoBehaviour {
             // Debug.Log(gameObject.name + " collided with: " + collision.gameObject.name);
             rb.linearVelocity = new Vector2(0, 0);
         }
+        if(collision.gameObject.CompareTag("Clear")) {
+            confused = false;
+        }
         if(collision.gameObject.CompareTag("Enemy")) {
             Destroy(gameObject);
+        }
+        if(collision.gameObject.CompareTag("Confusion")) {
+            confused = true;
         }
     }
 }

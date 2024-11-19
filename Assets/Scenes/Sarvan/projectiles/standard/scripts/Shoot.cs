@@ -3,6 +3,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour {
     [Range(15, 35)]
     [SerializeField] public float speed = 25f;
+    [SerializeField] public float despawntime = 5f;
 
     private Rigidbody2D rb;
 
@@ -20,6 +21,7 @@ public class Shoot : MonoBehaviour {
         }
 
         rb.linearVelocity = transform.up * speed;
+        Destroy(gameObject, despawntime);
     }
 
 }
