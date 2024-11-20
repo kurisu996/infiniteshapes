@@ -1,8 +1,18 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour{
     [SerializeField] public bool corrupted = false;
+    
     void LateUpdate() {
-        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        if (!corrupted){
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+    }
+
+    void Update(){
+        if (corrupted){
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
     }
 }

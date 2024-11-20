@@ -7,9 +7,11 @@ public class Movement : MonoBehaviour {
     [SerializeField] public bool confused = false;
     [SerializeField] public bool bleeding = false;
     Vector2 movement = Vector2.zero;
+    private GameObject cameramain;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
+        cameramain = GameObject.Find("Camera");
         // Debug.Log("hi");
     }
 
@@ -45,6 +47,7 @@ public class Movement : MonoBehaviour {
             speed = 10f;
             gameObject.GetComponent<Gun>().cursed = false;
             gameObject.GetComponent<Gun>().corrupted = false;
+            cameramain.GetComponent<FollowPlayer>().corrupted = false;
         }
         if(collision.gameObject.CompareTag("Enemy")) {
             Destroy(gameObject);
