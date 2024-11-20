@@ -22,7 +22,6 @@ public class Collision : MonoBehaviour {
             player.GetComponent<Movement>().bleeding = false;
             player.GetComponent<Movement>().speed = 10f;
             player.GetComponent<Gun>().corrupted = false;
-            cameramain.GetComponent<FollowPlayer>().corrupted = false;
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Cursed")){
@@ -35,7 +34,7 @@ public class Collision : MonoBehaviour {
         }
         if (collision.gameObject.CompareTag("Corrupted")){
             player.GetComponent<Gun>().corrupted = true;
-            cameramain.GetComponent<FollowPlayer>().corrupted = true;
+            player.GetComponent<Movement>().corrupted = true;
             Destroy(gameObject);
         }
     }

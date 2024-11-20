@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e3912ca213cb545998d8fde4eb9076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corrupted: 0
+  player: {fileID: 0}
 --- !u!81 &1570787041
 AudioListener:
   m_ObjectHideFlags: 0

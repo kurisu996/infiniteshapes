@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour {
     [SerializeField] public bool bleeding = false;
     [SerializeField] public bool canMove = true;
     [SerializeField] public bool invincible = false;
+    [SerializeField] public bool corrupted = false;
     [SerializeField] public GameObject deathcam;
     [SerializeField] public GameObject player;
     Vector2 movement = Vector2.zero;
@@ -46,6 +47,9 @@ public class Movement : MonoBehaviour {
             Vector3 direction = mouse - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            if (corrupted){
+                transform.Rotate(new Vector3(0, 0, UnityEngine.Random.Range(-10, 10)));
+            }
         }
         rb.angularVelocity = 0f;
     }
@@ -58,10 +62,10 @@ public class Movement : MonoBehaviour {
         if(collision.gameObject.CompareTag("Clear")) {
             confused = false;
             bleeding = false;
+            corrupted = false;
             speed = 10f;
             gameObject.GetComponent<Gun>().cursed = false;
             gameObject.GetComponent<Gun>().corrupted = false;
-            cameramain.GetComponent<FollowPlayer>().corrupted = false;
         }
         if(collision.gameObject.CompareTag("Enemy") && !invincible){
             StartCoroutine(Death());
