@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour{
     [SerializeField] public bool corrupted = false;
+    GameObject player;
+
+    void Start(){
+        player = GameObject.Find("Player");
+    }
     
     void LateUpdate() {
         if (!corrupted){
