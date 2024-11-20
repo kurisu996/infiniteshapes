@@ -4,6 +4,7 @@ public class Tri : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     [SerializeField] Vector2 movement = new Vector2(0, 0);
+    public ParticleSystem particle;
     
     [Range(1f, 20f)]
     [SerializeField] public float speed = 7f;
@@ -16,9 +17,16 @@ public class Tri : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool w = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
+        bool a = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         
+        if (a || w)
+        {
+            particle.Play();
+        }
+        else particle.Stop();
         movement = new Vector2(x, y);
 
         if (movement.x > 1 || movement.y > 1)
