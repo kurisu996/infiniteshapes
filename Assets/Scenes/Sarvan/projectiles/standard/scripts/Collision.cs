@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour {
     GameObject player;
+    private GameObject cameramain;
     
     void Start(){
         player = GameObject.Find("Player");
+        cameramain = GameObject.Find("Camera");
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Obstacle")) {
@@ -32,6 +34,7 @@ public class Collision : MonoBehaviour {
         }
         if (collision.gameObject.CompareTag("Corrupted")){
             player.GetComponent<Gun>().corrupted = true;
+            cameramain.GetComponent<FollowPlayer>().corrupted = true;
             Destroy(gameObject);
         }
     }
