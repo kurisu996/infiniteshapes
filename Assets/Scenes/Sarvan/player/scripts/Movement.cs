@@ -13,7 +13,8 @@ public class Movement : MonoBehaviour {
     [SerializeField] public bool invincible = false;
     [SerializeField] public bool corrupted = false;
     [SerializeField] public GameObject deathcam;
-    [SerializeField] public GameObject player;
+    //[SerializeField] public GameObject player;
+    //[SerializeField] public GameObject bullet;
     Vector2 movement = Vector2.zero;
     private GameObject cameramain;
     SpriteRenderer sr;
@@ -66,6 +67,8 @@ public class Movement : MonoBehaviour {
             speed = 10f;
             gameObject.GetComponent<Gun>().cursed = false;
             gameObject.GetComponent<Gun>().corrupted = false;
+            gameObject.GetComponent<Gun>().fastfire = false;
+            gameObject.GetComponent<Gun>().pierce = false;
         }
         if(collision.gameObject.CompareTag("Enemy") && !invincible){
             StartCoroutine(Death());

@@ -9,6 +9,11 @@ public class Collision : MonoBehaviour {
         cameramain = GameObject.Find("Camera");
     }
     private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Enemy")){
+            if (!player.GetComponent<Gun>().pierce){
+                Destroy(gameObject);
+            }
+        }
         if (collision.gameObject.CompareTag("Obstacle")) {
             // Debug.Log(gameObject.name + " collided with: " + collision.gameObject.name);
             Destroy(gameObject);
@@ -22,6 +27,9 @@ public class Collision : MonoBehaviour {
             player.GetComponent<Movement>().bleeding = false;
             player.GetComponent<Movement>().speed = 10f;
             player.GetComponent<Gun>().corrupted = false;
+            player.GetComponent<Gun>().fastfire = false;
+            player.GetComponent<Gun>().pierce = false;
+            Debug.Log("pierce = false");
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Cursed")){
@@ -35,6 +43,15 @@ public class Collision : MonoBehaviour {
         if (collision.gameObject.CompareTag("Corrupted")){
             player.GetComponent<Gun>().corrupted = true;
             player.GetComponent<Movement>().corrupted = true;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("FastFire")){
+            player.GetComponent<Gun>().fastfire = true;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Pierce")){
+            player.GetComponent<Gun>().pierce = true;
+            Debug.Log("pierce = true");
             Destroy(gameObject);
         }
     }

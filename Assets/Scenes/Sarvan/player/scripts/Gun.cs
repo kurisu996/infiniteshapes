@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour {
     [SerializeField] private float timer;
     [SerializeField] public bool cursed = false;
     [SerializeField] public bool corrupted = false;
+    [SerializeField] public bool fastfire = false;
+    [SerializeField] public bool pierce = false;
     public Quaternion rotation;
     
     private void Update() {
@@ -18,10 +20,14 @@ public class Gun : MonoBehaviour {
         } else{
             rotation = firingpoint.rotation;
         }
-        
+        if (fastfire){
+            firerate = 0.15f / 2f;
+        } else {
+            firerate = 0.15f;
+        }
         if (Input.GetMouseButton(0) && timer <= 0f && !cursed){
             Instantiate(bulletprefab, firingpoint.position, rotation);
             timer = firerate;
-        }  
+        }
     }
 }

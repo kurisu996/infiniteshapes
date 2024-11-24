@@ -12,6 +12,8 @@ TagManager:
   - Cursed
   - Bleeding
   - Corrupted
+  - FastFire
+  - Pierce
   layers:
   - Default
   - TransparentFX
