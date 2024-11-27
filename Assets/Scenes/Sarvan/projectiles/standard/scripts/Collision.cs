@@ -29,6 +29,7 @@ public class Collision : MonoBehaviour {
             player.GetComponent<Gun>().corrupted = false;
             player.GetComponent<Gun>().fastfire = false;
             player.GetComponent<Gun>().pierce = false;
+            player.GetComponent<Movement>().speedboost = false;
             Debug.Log("pierce = false");
             Destroy(gameObject);
         }
@@ -52,6 +53,11 @@ public class Collision : MonoBehaviour {
         if (collision.gameObject.CompareTag("Pierce")){
             player.GetComponent<Gun>().pierce = true;
             Debug.Log("pierce = true");
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Speed")){
+            player.GetComponent<Movement>().speedboost = true;
             Destroy(gameObject);
         }
     }

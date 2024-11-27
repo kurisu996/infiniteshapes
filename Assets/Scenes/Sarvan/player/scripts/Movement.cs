@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour {
     [SerializeField] public bool canMove = true;
     [SerializeField] public bool invincible = false;
     [SerializeField] public bool corrupted = false;
+    [SerializeField] public bool speedboost = false;
     [SerializeField] public GameObject deathcam;
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -30,8 +31,12 @@ public class Movement : MonoBehaviour {
         if (canMove){
             float movex = Input.GetAxisRaw("Horizontal");
             float movey = Input.GetAxisRaw("Vertical");
-            if (bleeding){
+            if (bleeding && !speedboost){
                 speed = 4f;
+            } else if (speedboost && !bleeding){
+                speed = 16f;
+            } else if (speedboost & bleeding){
+                speed = 10f;
             }
 
             if (confused){
@@ -64,6 +69,7 @@ public class Movement : MonoBehaviour {
             confused = false;
             bleeding = false;
             corrupted = false;
+            speedboost = false;
             speed = 10f;
             gameObject.GetComponent<Gun>().cursed = false;
             gameObject.GetComponent<Gun>().corrupted = false;
