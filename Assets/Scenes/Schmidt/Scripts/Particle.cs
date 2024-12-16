@@ -16,6 +16,14 @@ public class Particle : MonoBehaviour
     
     private void LateUpdate()
     {
-        transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+        bool w = Input.GetKey(KeyCode.W);
+        bool s = Input.GetKey(KeyCode.S);
+        bool d = Input.GetKey(KeyCode.D);
+        bool a = Input.GetKey(KeyCode.A);
+        if (w) transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+        if (s) transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+        if (d) transform.rotation = Quaternion.Euler(0f, -270f, 0f);
+        if (a) transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+        
     }
 }
