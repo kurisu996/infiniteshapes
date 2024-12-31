@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
+public class Movement : MonoBehaviour{
     public float speed = 10f;
     private Rigidbody2D rb;
 
@@ -13,29 +13,33 @@ public class Movement : MonoBehaviour {
     [SerializeField] public bool invincible = false;
     [SerializeField] public bool corrupted = false;
     [SerializeField] public bool speedboost = false;
+
     [SerializeField] public GameObject deathcam;
+
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
     Vector2 movement = Vector2.zero;
     private GameObject cameramain;
     SpriteRenderer sr;
 
-    private void Start() {
+    private void Start(){
         rb = GetComponent<Rigidbody2D>();
         cameramain = GameObject.Find("Camera");
         sr = GetComponent<SpriteRenderer>();
         // Debug.Log("hi");
     }
 
-    private void Update() {
-        if (canMove){
+    private void Update(){
+        if (canMove && !gameObject.GetComponent<Gun>().cursed){
             float movex = Input.GetAxisRaw("Horizontal");
             float movey = Input.GetAxisRaw("Vertical");
             if (bleeding && !speedboost){
                 speed = 4f;
-            } else if (speedboost && !bleeding){
+            }
+            else if (speedboost && !bleeding){
                 speed = 16f;
-            } else if (speedboost & bleeding){
+            }
+            else if (speedboost & bleeding){
                 speed = 10f;
             }
 
@@ -57,26 +61,34 @@ public class Movement : MonoBehaviour {
                 transform.Rotate(new Vector3(0, 0, UnityEngine.Random.Range(-10, 10)));
             }
         }
+
+        if (gameObject.GetComponent<Gun>().cursed){
+            StartCoroutine(Cursed());
+        }
+
         rb.angularVelocity = 0f;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Obstacle")) {
+    private void OnCollisionEnter2D(Collision2D collision){
+        if (collision.gameObject.CompareTag("Obstacle")){
             // Debug.Log(gameObject.name + " collided with: " + collision.gameObject.name);
             rb.linearVelocity = new Vector2(0, 0);
         }
-        if(collision.gameObject.CompareTag("Clear")) {
+
+        if (collision.gameObject.CompareTag("Clear")){
             confused = false;
             bleeding = false;
             corrupted = false;
             speedboost = false;
+            canMove = true;
             speed = 10f;
             gameObject.GetComponent<Gun>().cursed = false;
             gameObject.GetComponent<Gun>().corrupted = false;
             gameObject.GetComponent<Gun>().fastfire = false;
             gameObject.GetComponent<Gun>().pierce = false;
         }
-        if(collision.gameObject.CompareTag("Enemy") && !invincible){
+
+        if (collision.gameObject.CompareTag("Enemy") && !invincible){
             StartCoroutine(Death());
         }
     }
@@ -101,6 +113,30 @@ public class Movement : MonoBehaviour {
             sr.color = new Color(1f, 1f, 1f, 1f);
             yield return new WaitForSeconds(0.1f);
         }
+
         invincible = false;
     }
+
+    private IEnumerator Cursed(){ 
+        String cure = "in the name of the father and of the son and of the holy spirit amen";
+        int i = 0;
+        while (i < cure.Length){
+            if (Input.anyKeyDown){
+                if (!string.IsNullOrEmpty(Input.inputString)){
+                    char letter = Input.inputString[0];
+                    if (letter == cure[i]){
+                        i++;
+                    } else {
+                        i = Mathf.Max(0, i - 1);
+                    }
+                }
+                yield return new WaitUntil(() => !Input.anyKeyDown);
+            }
+            yield return null;
+        }
+        Debug.Log("Curse lifted");
+        gameObject.GetComponent<Gun>().cursed = false;
+    }
 }
+
+
