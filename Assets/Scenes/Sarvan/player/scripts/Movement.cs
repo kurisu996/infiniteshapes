@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour{
     [SerializeField] public bool invincible = false;
     [SerializeField] public bool corrupted = false;
     [SerializeField] public bool speedboost = false;
-
+    private int cursedtimer = 0;
     [SerializeField] public GameObject deathcam;
 
     //[SerializeField] public GameObject player;
@@ -63,7 +63,19 @@ public class Movement : MonoBehaviour{
         }
 
         if (gameObject.GetComponent<Gun>().cursed){
-            StartCoroutine(Cursed());
+            String cure = "test";
+            if (cursedtimer < cure.Length && Input.anyKeyDown){
+                if (Input.inputString[0] == cure[cursedtimer]){
+                    Debug.Log($"Correct: {Input.inputString[0]} - {cure[cursedtimer]}\n{cursedtimer + 1}/{cure.Length}");
+                    cursedtimer++;
+                } else if (Input.inputString[0] != cure[cursedtimer]){
+                    Debug.Log($"False: {Input.inputString[0]} - {cure[cursedtimer]}\n{cursedtimer + 1}/{cure.Length}");
+                }
+            } else if (cursedtimer == cure.Length){
+                gameObject.GetComponent<Gun>().cursed = false;
+            }
+        } else {
+            cursedtimer = 0;
         }
 
         rb.angularVelocity = 0f;
@@ -115,27 +127,6 @@ public class Movement : MonoBehaviour{
         }
 
         invincible = false;
-    }
-
-    private IEnumerator Cursed(){ 
-        String cure = "in the name of the father and of the son and of the holy spirit amen";
-        int i = 0;
-        while (i < cure.Length){
-            if (Input.anyKeyDown){
-                if (!string.IsNullOrEmpty(Input.inputString)){
-                    char letter = Input.inputString[0];
-                    if (letter == cure[i]){
-                        i++;
-                    } else {
-                        i = Mathf.Max(0, i - 1);
-                    }
-                }
-                yield return new WaitUntil(() => !Input.anyKeyDown);
-            }
-            yield return null;
-        }
-        Debug.Log("Curse lifted");
-        gameObject.GetComponent<Gun>().cursed = false;
     }
 }
 
