@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour{
     [SerializeField] public bool speedboost = false;
     private int cursedtimer = 0;
     [SerializeField] public GameObject deathcam;
+    [SerializeField] public Sprite normal;
+    [SerializeField] public Sprite white;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -108,7 +110,10 @@ public class Movement : MonoBehaviour{
     private IEnumerator Death(){
         canMove = false;
         rb.linearVelocity = Vector2.zero;
+        sr.sprite = white;
+        yield return new WaitForSeconds(0.01f);
         sr.color = new Color(1f, 1f, 1f, 0f);
+        sr.sprite = normal;
         yield return new WaitForSeconds(deathtimer);
         sr.color = new Color(1f, 1f, 1f, 1f);
         transform.position = Vector3.zero;

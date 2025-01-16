@@ -5773,9 +5773,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 934651664745307811, guid: 264e6c50498e0104696ba04323012d6e, type: 3}
+      propertyPath: white
+      value: 
+      objectReference: {fileID: -5060505087072841296, guid: cd3f0237cf2d07f428a25e554c2c55b6, type: 3}
+    - target: {fileID: 934651664745307811, guid: 264e6c50498e0104696ba04323012d6e, type: 3}
       propertyPath: bullet
       value: 
       objectReference: {fileID: 5516521834887937216, guid: 6743909ea7a5cf348bba1cddb818a2ff, type: 3}
+    - target: {fileID: 934651664745307811, guid: 264e6c50498e0104696ba04323012d6e, type: 3}
+      propertyPath: normal
+      value: 
+      objectReference: {fileID: -6200484753934960796, guid: 068a1b78a4e3e6745a625e7299eb3f6b, type: 3}
     - target: {fileID: 934651664745307811, guid: 264e6c50498e0104696ba04323012d6e, type: 3}
       propertyPath: player
       value: 
