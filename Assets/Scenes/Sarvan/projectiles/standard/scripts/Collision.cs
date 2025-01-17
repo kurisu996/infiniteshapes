@@ -3,6 +3,7 @@ using UnityEngine;
 public class Collision : MonoBehaviour {
     GameObject player;
     private GameObject cameramain;
+    public float rand;
     
     void Start(){
         player = GameObject.Find("Player");
@@ -10,6 +11,19 @@ public class Collision : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Enemy")){
+            if (!player.GetComponent<Gun>().pierce){
+                Destroy(gameObject);
+            }
+        }
+        if (collision.gameObject.CompareTag("Enemy_Triangle")){
+            rand = Random.Range(0f, 1f);
+            if (!player.GetComponent<Gun>().pierce && rand > 1/3f){
+                Destroy(gameObject);
+            } else if (rand < 1/3f){
+                transform.Rotate(0f, 0f, 180f);
+            }
+        }
+        if (collision.gameObject.CompareTag("Enemy_Square")) {
             if (!player.GetComponent<Gun>().pierce){
                 Destroy(gameObject);
             }
