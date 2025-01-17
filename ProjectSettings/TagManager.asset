@@ -17,6 +17,7 @@ TagManager:
   - Speed
   - Enemy_Triangle
   - Enemy_Square
+  - Bouncer
   layers:
   - Default
   - TransparentFX

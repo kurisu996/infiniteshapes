@@ -1,5 +1,8 @@
+using System.Numerics;
 using UnityEngine;
-
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 public class Collision : MonoBehaviour {
     GameObject player;
     private GameObject cameramain;
@@ -31,6 +34,9 @@ public class Collision : MonoBehaviour {
         if (collision.gameObject.CompareTag("Obstacle")) {
             // Debug.Log(gameObject.name + " collided with: " + collision.gameObject.name);
             Destroy(gameObject);
+        }
+        if (GetComponent<Collider>().CompareTag("Bouncer")) {
+            
         }
         if (collision.gameObject.CompareTag("Confusion")){
             player.GetComponent<Movement>().confused = true;
