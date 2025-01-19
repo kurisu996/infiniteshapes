@@ -1,4 +1,5 @@
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
@@ -7,11 +8,16 @@ public class Collision : MonoBehaviour {
     GameObject player;
     private GameObject cameramain;
     public float rand;
+    private Rigidbody2D rb;
     
     void Start(){
         player = GameObject.Find("Player");
         cameramain = GameObject.Find("Camera");
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+        rb.AddForce (transform.right *Time.deltaTime * 1f);
     }
+    
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Enemy")){
             if (!player.GetComponent<Gun>().pierce){
@@ -34,9 +40,6 @@ public class Collision : MonoBehaviour {
         if (collision.gameObject.CompareTag("Obstacle")) {
             // Debug.Log(gameObject.name + " collided with: " + collision.gameObject.name);
             Destroy(gameObject);
-        }
-        if (GetComponent<Collider>().CompareTag("Bouncer")) {
-            
         }
         if (collision.gameObject.CompareTag("Confusion")){
             player.GetComponent<Movement>().confused = true;

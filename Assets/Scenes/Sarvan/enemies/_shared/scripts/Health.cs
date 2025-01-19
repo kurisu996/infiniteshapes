@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
     [SerializeField] public float health;
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
-    [SerializeField] private GameObject script;
+    private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
 
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -25,24 +24,24 @@ public class Health : MonoBehaviour {
     }
 
     private IEnumerator Flash(){
-        sr.color = Color.white;
+        _sr.color = Color.white;
         yield return new WaitForSeconds(0.05f);
-        sr.color = Color.red;
+        _sr.color = Color.red;
         health--;
     }
 
     private IEnumerator Death(){
         if (health <= 1){
-            sr.color = Color.white;
+            _sr.color = Color.white;
             yield return new WaitForSeconds(0.05f);
             Destroy(gameObject);
         }
     }
     
     private IEnumerator Heal(){
-        sr.color = Color.green;
+        _sr.color = Color.green;
         yield return new WaitForSeconds(0.05f);
-        sr.color = Color.red;
+        _sr.color = Color.red;
         health++;
     }
 }

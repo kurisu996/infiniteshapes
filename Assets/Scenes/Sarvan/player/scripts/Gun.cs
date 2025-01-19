@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Gun : MonoBehaviour {
-    [SerializeField] private GameObject bulletprefab;
-    [SerializeField] private Transform firingpoint;
+    [SerializeField] private GameObject _bulletprefab;
+    [SerializeField] private Transform _firingpoint;
     public float firerate = 0.15f;
     [SerializeField] private float timer;
     [SerializeField] public bool cursed = false;
@@ -18,7 +19,7 @@ public class Gun : MonoBehaviour {
         if (corrupted){
             rotation = UnityEngine.Random.rotation;
         } else{
-            rotation = firingpoint.rotation;
+            rotation = _firingpoint.rotation;
         }
         if (fastfire){
             firerate = 0.15f / 2f;
@@ -26,7 +27,7 @@ public class Gun : MonoBehaviour {
             firerate = 0.15f;
         }
         if (Input.GetMouseButton(0) && timer <= 0f && !cursed){
-            Instantiate(bulletprefab, firingpoint.position, rotation);
+            Instantiate(_bulletprefab, _firingpoint.position, rotation);
             timer = firerate;
         }
     }

@@ -18,6 +18,8 @@ TagManager:
   - Enemy_Triangle
   - Enemy_Square
   - Bouncer
+  - Button_Test0
+  - Button_Test1
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - non-trigger colliders
   - 
   - 
   - 

@@ -6,14 +6,14 @@ public class Shoot : MonoBehaviour {
     [SerializeField] public float despawntime = 5f;
     
 
-    private Rigidbody2D rb;
-    private GameObject player;
+    private Rigidbody2D _rb;
+    private GameObject _player;
     public bool pierce;
 
     private void Start() {
-        rb = GetComponent<Rigidbody2D>();
-        player = GameObject.Find("Player");
-        pierce = player.GetComponent<Gun>().pierce;
+        _rb = GetComponent<Rigidbody2D>();
+        _player = GameObject.Find("Player");
+        pierce = _player.GetComponent<Gun>().pierce;
     }
 
     private void FixedUpdate() {
@@ -32,7 +32,7 @@ public class Shoot : MonoBehaviour {
             speed = 25f;
         }
 
-        rb.linearVelocity = transform.up * speed;
+        _rb.linearVelocity = transform.up * speed;
         Destroy(gameObject, despawntime);
     }
 
