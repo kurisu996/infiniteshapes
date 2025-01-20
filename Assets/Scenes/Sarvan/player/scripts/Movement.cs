@@ -19,7 +19,6 @@ public class Movement : MonoBehaviour{
     [SerializeField] public Sprite normal;
     [SerializeField] public Sprite white;
     [SerializeField] public GameObject shield;
-    public bool shieldactive = false;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -80,10 +79,6 @@ public class Movement : MonoBehaviour{
             }
         } else {
             _cursedtimer = 0;
-        }
-
-        if (shieldactive){
-            
         }
 
         rb.angularVelocity = 0f;

@@ -220,4 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea1f1d4cef2aee49a9b4f2b7facd658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 3580148197943121997, guid: d680371797982c443af881cd261fc9e5, type: 3}
+  shield0: {fileID: 6102174799572768112, guid: c1da54106a11e9d45b5fca68fd256289, type: 3}
   rand: 0
+  shield: {fileID: 0}

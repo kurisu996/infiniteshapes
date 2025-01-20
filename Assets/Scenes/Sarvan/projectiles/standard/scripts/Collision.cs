@@ -5,15 +5,18 @@ using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 public class Collision : MonoBehaviour {
-    GameObject player;
+    [SerializeField] GameObject player;
+    [SerializeField] private GameObject shield0;
     private GameObject cameramain;
     public float rand;
     private Rigidbody2D rb;
+    public Shield shield;
     
     void Start(){
         player = GameObject.Find("Player");
         cameramain = GameObject.Find("Camera");
         rb = GetComponent<Rigidbody2D>();
+        shield = shield0.GetComponent<Shield>();
         rb.gravityScale = 0;
         rb.AddForce (transform.right *Time.deltaTime * 1f);
     }
@@ -83,7 +86,7 @@ public class Collision : MonoBehaviour {
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Shield")){
-            player.GetComponent<Movement>().shieldactive = true;
+            shield.shieldactive = true;
             Destroy(gameObject);
         }
     }
