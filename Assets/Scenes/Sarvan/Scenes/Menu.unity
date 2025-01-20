@@ -475,7 +475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce21d47e5d787874885779552f11868c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 3311263}
 --- !u!1 &371894454
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +977,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1332576427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce21d47e5d787874885779552f11868c, type: 3}
+  m_Script: {fileID: 11500000, guid: b357eb68a3ab8a440a0e1537a1a77a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 3311263}
@@ -1378,7 +1377,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1332576428}
-        m_TargetAssemblyTypeName: Button0, Assembly-CSharp
+        m_TargetAssemblyTypeName: Button00, Assembly-CSharp
         m_MethodName: playtest
         m_Mode: 1
         m_Arguments:

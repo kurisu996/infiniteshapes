@@ -78,9 +78,12 @@ public class Collision : MonoBehaviour {
             Debug.Log("pierce = true");
             Destroy(gameObject);
         }
-
         if (collision.gameObject.CompareTag("Speed")){
             player.GetComponent<Movement>().speedboost = true;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Shield")){
+            player.GetComponent<Movement>().shieldactive = true;
             Destroy(gameObject);
         }
     }

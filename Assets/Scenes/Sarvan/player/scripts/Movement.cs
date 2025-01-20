@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour{
     [SerializeField] public GameObject deathcam;
     [SerializeField] public Sprite normal;
     [SerializeField] public Sprite white;
+    [SerializeField] public GameObject shield;
+    public bool shieldactive = false;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -80,6 +82,10 @@ public class Movement : MonoBehaviour{
             _cursedtimer = 0;
         }
 
+        if (shieldactive){
+            
+        }
+
         rb.angularVelocity = 0f;
         vel = rb.linearVelocity;
     }
@@ -104,6 +110,12 @@ public class Movement : MonoBehaviour{
         }
 
         if (collision.gameObject.CompareTag("Enemy") && !invincible){
+            StartCoroutine(Death());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision){
+        if (collision.gameObject.CompareTag("Damage") && !invincible){
             StartCoroutine(Death());
         }
     }

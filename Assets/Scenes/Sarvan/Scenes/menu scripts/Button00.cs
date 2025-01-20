@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Button0 : MonoBehaviour{
+public class Button00 : MonoBehaviour{
     [SerializeField] Camera cam;
     
     public void playtest(){
