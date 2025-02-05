@@ -4,18 +4,18 @@ public class PlayerDetection : MonoBehaviour{
     public bool playerDetected;
     public Vector2 dir;
     [SerializeField] private float _dist;
-    private Transform _player;
+    private GameObject _player;
     
    private void Awake() {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
     
     void Update() {
-        Vector2 etp = _player.position - transform.position;
+        Vector2 etp = _player.transform.position - transform.position;
         dir = etp.normalized;
-        if (etp.magnitude <= _dist){
+        if (etp.magnitude <= _dist && !_player.GetComponent<Movement>().dead){
             playerDetected = true;
-        } else if (!_player.GetComponent<Movement>().canMove){
+        } else {
             playerDetected = false;
         }
     }

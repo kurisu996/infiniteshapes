@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour{
     [SerializeField] public Sprite normal;
     [SerializeField] public Sprite white;
     [SerializeField] public GameObject shield;
+    [SerializeField] public bool dead = false;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -54,6 +55,10 @@ public class Movement : MonoBehaviour{
             }
             else{
                 _movement = new Vector2(movex, movey);
+            }
+
+            if (_movement.magnitude > 1){
+                _movement.Normalize();
             }
 
             rb.linearVelocity = _movement * speed;
@@ -117,6 +122,7 @@ public class Movement : MonoBehaviour{
 
     private IEnumerator Death(){
         canMove = false;
+        dead = true;
         _collider.enabled = false;
         rb.linearVelocity = Vector2.zero;
         _sr.sprite = white;
@@ -128,6 +134,7 @@ public class Movement : MonoBehaviour{
         transform.position = Vector3.zero;
         canMove = true;
         _collider.enabled = true;
+        dead = false;
         StartCoroutine(Respawn());
     }
 

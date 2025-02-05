@@ -20,7 +20,6 @@ TagManager:
   - Bouncer
   - Button_Test0
   - Button_Test1
-  - Shield
   layers:
   - Default
   - TransparentFX

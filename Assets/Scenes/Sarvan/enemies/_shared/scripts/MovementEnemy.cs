@@ -7,6 +7,7 @@ public class MovementEnemy : MonoBehaviour{
     private Rigidbody2D _rb;
     private PlayerDetection _detection;
     private Vector2 _direction;
+    private bool _dirdetermined;
     
     private void Awake() {
         _rb = GetComponent<Rigidbody2D>();
@@ -15,19 +16,21 @@ public class MovementEnemy : MonoBehaviour{
 
     
     private void FixedUpdate() {
-        updateDirection();
         updateRotation();
+        if (_detection.playerDetected){
+            updateDirection();
+        } else if (!_dirdetermined) {
+            _direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            _dirdetermined = true;
+        }
         updateSpeed();
         _rb.angularVelocity = 0f;
         vel = _rb.linearVelocity;
     }
 
     private void updateDirection(){
-        if (_detection.playerDetected){
-            _direction = _detection.dir;
-        } else {
-            _direction = new Vector2(Random.Range(0f, 360f), Random.Range(0f, 360f)).normalized;
-        }
+        _direction = _detection.dir;
+        _dirdetermined = false;
     }
 
     private void updateRotation(){
@@ -37,11 +40,17 @@ public class MovementEnemy : MonoBehaviour{
     }
 
     private void updateSpeed(){
-        if (_direction == Vector2.zero){
-            _rb.linearVelocity = _direction * (speed/10);
+        if (!_detection.playerDetected){
+            _rb.linearVelocity = _direction * (speed/3);
         }
         else{
             _rb.linearVelocity = _direction * speed;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision){
+        if (collision.gameObject.CompareTag("Obstacle")){
+            Debug.Log("blallbvalbvl");
+            _direction = (_direction) * -1;
         }
     }
 }
