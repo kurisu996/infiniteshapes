@@ -181,6 +181,8 @@ MonoBehaviour:
   deathcam: {fileID: 7511285030667777715}
   normal: {fileID: -6200484753934960796, guid: 068a1b78a4e3e6745a625e7299eb3f6b, type: 3}
   white: {fileID: -5060505087072841296, guid: cd3f0237cf2d07f428a25e554c2c55b6, type: 3}
+  shield: {fileID: 0}
+  dead: 0
 --- !u!114 &4488650215578727801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +230,7 @@ GameObject:
   - component: {fileID: 2954157624736854519}
   - component: {fileID: 8541816609564069399}
   - component: {fileID: 9187677488591422961}
+  - component: {fileID: 4089269298387756814}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -322,6 +325,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+--- !u!114 &4089269298387756814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511285030667777715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a83c8765183b04ca802133f2deb02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 2954157624736854519}
 --- !u!1 &8788488188243651566
 GameObject:
   m_ObjectHideFlags: 0

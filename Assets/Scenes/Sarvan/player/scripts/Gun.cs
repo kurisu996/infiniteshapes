@@ -12,6 +12,11 @@ public class Gun : MonoBehaviour {
     [SerializeField] public bool fastfire = false;
     [SerializeField] public bool pierce = false;
     public Quaternion rotation;
+    private GameObject _player;
+
+    void Start(){
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
     
     private void Update() {
         timer -= Time.deltaTime;
@@ -26,7 +31,7 @@ public class Gun : MonoBehaviour {
         } else {
             firerate = 0.15f;
         }
-        if (Input.GetMouseButton(0) && timer <= 0f && !cursed){
+        if (Input.GetMouseButton(0) && timer <= 0f && !cursed && !_player.GetComponent<Movement>().dead){
             Instantiate(_bulletprefab, _firingpoint.position, rotation);
             timer = firerate;
         }
