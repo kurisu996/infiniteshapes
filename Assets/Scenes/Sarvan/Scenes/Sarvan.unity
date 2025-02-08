@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 53572864}
   - component: {fileID: 53572866}
   - component: {fileID: 53572865}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Corrupted
   m_TagString: Corrupted
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 64139814}
   - component: {fileID: 64139813}
   - component: {fileID: 64139812}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (52)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 73140820}
   - component: {fileID: 73140819}
   - component: {fileID: 73140818}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (35)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 200913738}
   - component: {fileID: 200913737}
   - component: {fileID: 200913736}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (50)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 202292892}
   - component: {fileID: 202292891}
   - component: {fileID: 202292890}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (48)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 228025524}
   - component: {fileID: 228025523}
   - component: {fileID: 228025522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (44)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1592,7 +1592,7 @@ GameObject:
   - component: {fileID: 389431531}
   - component: {fileID: 389431530}
   - component: {fileID: 389431529}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fast Fire
   m_TagString: FastFire
   m_Icon: {fileID: 0}
@@ -1865,7 +1865,7 @@ GameObject:
   - component: {fileID: 450581582}
   - component: {fileID: 450581581}
   - component: {fileID: 450581580}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (49)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2175,7 +2175,7 @@ GameObject:
   - component: {fileID: 508413380}
   - component: {fileID: 508413379}
   - component: {fileID: 508413378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (46)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2458,7 +2458,7 @@ GameObject:
   - component: {fileID: 560167898}
   - component: {fileID: 560167897}
   - component: {fileID: 560167896}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (37)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2781,7 +2781,7 @@ GameObject:
   - component: {fileID: 625170352}
   - component: {fileID: 625170351}
   - component: {fileID: 625170350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (37)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2943,7 +2943,7 @@ GameObject:
   - component: {fileID: 650794827}
   - component: {fileID: 650794826}
   - component: {fileID: 650794825}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pierce (1)
   m_TagString: Speed
   m_Icon: {fileID: 0}
@@ -2959,11 +2959,11 @@ Transform:
   m_GameObject: {fileID: 650794823}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.49, y: -3.496, z: 0}
+  m_LocalPosition: {x: -0.027980804, y: -2.4667945, z: 1.0155001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 729433110}
+  m_Father: {fileID: 1443772625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &650794825
 BoxCollider2D:
@@ -3105,7 +3105,7 @@ GameObject:
   - component: {fileID: 657998375}
   - component: {fileID: 657998374}
   - component: {fileID: 657998373}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (56)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3625,8 +3625,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1563033191}
-  - {fileID: 1512353248}
-  - {fileID: 650794824}
   - {fileID: 1082830945}
   - {fileID: 1261450750}
   - {fileID: 1906537255}
@@ -3645,7 +3643,7 @@ GameObject:
   - component: {fileID: 758064054}
   - component: {fileID: 758064053}
   - component: {fileID: 758064052}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (51)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3894,7 +3892,7 @@ GameObject:
   - component: {fileID: 851824181}
   - component: {fileID: 851824180}
   - component: {fileID: 851824179}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (45)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4161,7 +4159,7 @@ GameObject:
   - component: {fileID: 977437227}
   - component: {fileID: 977437226}
   - component: {fileID: 977437225}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (55)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4540,7 +4538,7 @@ GameObject:
   - component: {fileID: 1006658781}
   - component: {fileID: 1006658780}
   - component: {fileID: 1006658779}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (33)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4792,7 +4790,7 @@ GameObject:
   - component: {fileID: 1017831544}
   - component: {fileID: 1017831543}
   - component: {fileID: 1017831542}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (40)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5095,7 +5093,7 @@ GameObject:
   - component: {fileID: 1082830944}
   - component: {fileID: 1082830943}
   - component: {fileID: 1082830942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Clear
   m_TagString: Clear
   m_Icon: {fileID: 0}
@@ -5257,7 +5255,7 @@ GameObject:
   - component: {fileID: 1095904525}
   - component: {fileID: 1095904524}
   - component: {fileID: 1095904523}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (41)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5419,7 +5417,7 @@ GameObject:
   - component: {fileID: 1101646663}
   - component: {fileID: 1101646662}
   - component: {fileID: 1101646661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (38)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5615,7 +5613,7 @@ GameObject:
   - component: {fileID: 1185512864}
   - component: {fileID: 1185512863}
   - component: {fileID: 1185512862}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (43)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5777,7 +5775,7 @@ GameObject:
   - component: {fileID: 1209486497}
   - component: {fileID: 1209486496}
   - component: {fileID: 1209486495}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (39)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6081,7 +6079,7 @@ GameObject:
   - component: {fileID: 1222497703}
   - component: {fileID: 1222497702}
   - component: {fileID: 1222497701}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (54)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6243,7 +6241,7 @@ GameObject:
   - component: {fileID: 1261450751}
   - component: {fileID: 1261450753}
   - component: {fileID: 1261450752}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cursed
   m_TagString: Cursed
   m_Icon: {fileID: 0}
@@ -6541,7 +6539,7 @@ GameObject:
   - component: {fileID: 1317124660}
   - component: {fileID: 1317124659}
   - component: {fileID: 1317124658}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (34)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6703,7 +6701,7 @@ GameObject:
   - component: {fileID: 1379018895}
   - component: {fileID: 1379018894}
   - component: {fileID: 1379018893}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (43)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6883,6 +6881,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 389431528}
+  - {fileID: 650794824}
+  - {fileID: 1512353248}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1469004877
@@ -6897,7 +6897,7 @@ GameObject:
   - component: {fileID: 1469004880}
   - component: {fileID: 1469004879}
   - component: {fileID: 1469004878}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (57)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7093,7 +7093,7 @@ GameObject:
   - component: {fileID: 1491609107}
   - component: {fileID: 1491609106}
   - component: {fileID: 1491609105}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (47)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7316,7 +7316,7 @@ GameObject:
   - component: {fileID: 1512353251}
   - component: {fileID: 1512353250}
   - component: {fileID: 1512353249}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pierce
   m_TagString: Pierce
   m_Icon: {fileID: 0}
@@ -7332,11 +7332,11 @@ Transform:
   m_GameObject: {fileID: 1512353247}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.49, y: -3.496, z: 0}
+  m_LocalPosition: {x: -2.0279808, y: -2.4667945, z: 1.0155001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 729433110}
+  m_Father: {fileID: 1443772625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1512353249
 BoxCollider2D:
@@ -7478,7 +7478,7 @@ GameObject:
   - component: {fileID: 1512417815}
   - component: {fileID: 1512417814}
   - component: {fileID: 1512417813}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (41)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7658,7 +7658,7 @@ GameObject:
   - component: {fileID: 1563033190}
   - component: {fileID: 1563033193}
   - component: {fileID: 1563033192}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Confusion
   m_TagString: Confusion
   m_Icon: {fileID: 0}
@@ -7820,7 +7820,7 @@ GameObject:
   - component: {fileID: 1568328908}
   - component: {fileID: 1568328907}
   - component: {fileID: 1568328906}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (42)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7987,7 +7987,7 @@ GameObject:
   - component: {fileID: 1713300905}
   - component: {fileID: 1713300904}
   - component: {fileID: 1713300903}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (53)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8209,7 +8209,7 @@ GameObject:
   - component: {fileID: 1756712157}
   - component: {fileID: 1756712156}
   - component: {fileID: 1756712155}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (42)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8376,7 +8376,7 @@ GameObject:
   - component: {fileID: 1841074537}
   - component: {fileID: 1841074536}
   - component: {fileID: 1841074535}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (36)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8543,7 +8543,7 @@ GameObject:
   - component: {fileID: 1896428164}
   - component: {fileID: 1896428163}
   - component: {fileID: 1896428162}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (38)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8705,7 +8705,7 @@ GameObject:
   - component: {fileID: 1906537256}
   - component: {fileID: 1906537258}
   - component: {fileID: 1906537257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bleeding
   m_TagString: Bleeding
   m_Icon: {fileID: 0}
@@ -9113,7 +9113,7 @@ GameObject:
   - component: {fileID: 2002152320}
   - component: {fileID: 2002152319}
   - component: {fileID: 2002152318}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (40)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9362,7 +9362,7 @@ GameObject:
   - component: {fileID: 2057221538}
   - component: {fileID: 2057221537}
   - component: {fileID: 2057221536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (39)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9930,13 +9930,93 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 256589402477126302, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 312239056390888960, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 579664966569970009, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.03
       objectReference: {fileID: 0}
+    - target: {fileID: 890682873386821137, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124022848163866666, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169141972274049472, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1390803079642656953, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582083137620127406, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797911488787722016, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803332319027638398, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960487998216419830, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679587456211083108, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2832208206955934987, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884467910686535688, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979984923304532764, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141943750813957961, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233628224277178714, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291104489629333909, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523735062626889478, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839492757879995252, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4204384530560239975, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361566433354311859, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4751146540414001805, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9978,9 +10058,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5075308764231946128, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141438658476694780, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254130179386828199, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535411198859100239, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571830299027848616, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636001832592387792, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835718397071236152, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448312211884398110, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8034212842174029095, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034212842174029095, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140514664032898037, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261580816352460903, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448623483967198023, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694978478037914185, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806387785951394882, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843978439080073024, guid: a6177daeab3ead840b96770b86c98ffc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

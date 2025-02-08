@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour{
     public float speed = 10f;
     private Rigidbody2D rb;
+    private Collider2D _col;
 
     [SerializeField] private Vector2 vel;
     [SerializeField] public float deathtimer = 3f;
@@ -20,6 +21,8 @@ public class Movement : MonoBehaviour{
     [SerializeField] public Sprite white;
     [SerializeField] public GameObject shield;
     [SerializeField] public bool dead = false;
+    [SerializeField] public float dashtimer = 0f;
+    [SerializeField] public bool dashing = false;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -33,6 +36,7 @@ public class Movement : MonoBehaviour{
         _cameramain = GameObject.Find("Camera");
         _sr = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
+        _col = gameObject.GetComponent<Collider2D>();
         // Debug.Log("hi");
     }
 
@@ -49,7 +53,7 @@ public class Movement : MonoBehaviour{
             else if (speedboost && bleeding){
                 speed = 10f;
             }
-
+            
             if (confused){
                 _movement = new Vector2(movex * -1, movey * -1);
             }
@@ -61,7 +65,9 @@ public class Movement : MonoBehaviour{
                 _movement.Normalize();
             }
 
-            rb.linearVelocity = _movement * speed;
+            if (!dashing){
+                rb.linearVelocity = _movement * speed;
+            }
 
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouse.z = 0;
@@ -88,6 +94,11 @@ public class Movement : MonoBehaviour{
 
         rb.angularVelocity = 0f;
         vel = rb.linearVelocity;
+        dashtimer -= Time.deltaTime;
+        
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canMove && dashtimer <= 0f){
+            StartCoroutine(Dash());
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
@@ -110,13 +121,19 @@ public class Movement : MonoBehaviour{
         }
 
         if (collision.gameObject.CompareTag("Enemy") && !invincible){
-            StartCoroutine(Death());
+            if (!dashing){
+                StartCoroutine(Death());
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.CompareTag("Damage") && !invincible){
             StartCoroutine(Death());
+        }
+
+        if (collision.gameObject.layer == 3){
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
@@ -149,6 +166,18 @@ public class Movement : MonoBehaviour{
         }
 
         invincible = false;
+    }
+
+    private IEnumerator Dash(){
+        dashing = true;
+        _col.isTrigger = true;
+        gameObject.tag = "Damage";
+        rb.linearVelocity = _movement * 30f;
+        dashtimer = 3f;
+        yield return new WaitForSeconds(0.15f);
+        gameObject.tag = "Player";
+        _col.isTrigger = false;
+        dashing = false;
     }
 }
 
