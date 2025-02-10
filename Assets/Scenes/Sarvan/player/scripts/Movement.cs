@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Movement : MonoBehaviour{
@@ -23,6 +24,9 @@ public class Movement : MonoBehaviour{
     [SerializeField] public bool dead = false;
     [SerializeField] public float dashtimer = 0f;
     [SerializeField] public bool dashing = false;
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] public TextMeshProUGUI text2;
+    public int victims = 0;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -99,6 +103,15 @@ public class Movement : MonoBehaviour{
         if (Input.GetKeyDown(KeyCode.LeftShift) && canMove && dashtimer <= 0f){
             StartCoroutine(Dash());
         }
+
+        if (dashtimer <= 0f){
+            text.text = "Dash Active";
+        }
+        else{
+            text.text = "";
+        }
+        
+        text2.text = "Enemies Killed: " + victims;
     }
 
     private void OnCollisionEnter2D(Collision2D collision){

@@ -1,14 +1,16 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
     [SerializeField] public float health;
+    [SerializeField] public GameObject player;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
 
     void Start() {
         _rb = GetComponent<Rigidbody2D>();
-        _sr = GetComponent<SpriteRenderer>();
+        _sr = GetComponent<SpriteRenderer>(); ;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -34,6 +36,7 @@ public class Health : MonoBehaviour {
         if (health <= 1){
             _sr.color = Color.white;
             yield return new WaitForSeconds(0.05f);
+            player.GetComponent<Movement>().victims++;
             Destroy(gameObject);
         }
     }

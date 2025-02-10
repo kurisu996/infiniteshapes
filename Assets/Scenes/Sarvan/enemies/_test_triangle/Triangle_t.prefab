@@ -180,4 +180,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  script: {fileID: 5516521834887937216, guid: 6743909ea7a5cf348bba1cddb818a2ff, type: 3}
+  player: {fileID: 3580148197943121997, guid: d680371797982c443af881cd261fc9e5, type: 3}
+  n: 0
