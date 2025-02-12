@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using Random = System.Random;
 
 public class Movement : MonoBehaviour{
     public float speed = 10f;
@@ -25,8 +26,8 @@ public class Movement : MonoBehaviour{
     [SerializeField] public float dashtimer = 0f;
     [SerializeField] public bool dashing = false;
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] public TextMeshProUGUI text2;
-    public int victims = 0;
+    //[SerializeField] public TextMeshProUGUI text2;
+    [SerializeField] public GameObject cloud;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -111,7 +112,7 @@ public class Movement : MonoBehaviour{
             text.text = "";
         }
         
-        text2.text = "Enemies Killed: " + victims;
+        //text2.text = "Enemies Killed: " + victims;
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
@@ -185,6 +186,7 @@ public class Movement : MonoBehaviour{
         dashing = true;
         _col.isTrigger = true;
         gameObject.tag = "Damage";
+        Instantiate(cloud, transform.position, Quaternion.identity);
         rb.linearVelocity = _movement * 30f;
         dashtimer = 3f;
         yield return new WaitForSeconds(0.15f);
