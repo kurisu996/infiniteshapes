@@ -10,10 +10,12 @@ public class Cloudfade : MonoBehaviour{
         _sr = GetComponent<SpriteRenderer>();
     }
     
-    private IEnumerator Fade(){
+    /*private IEnumerator Fade(){
         for (int i = 1000; i >= 0; i--){
             _sr.color.a = i / 1000f;
             
         }
-    }
+
+        yield return null;
+    }*/
 }
