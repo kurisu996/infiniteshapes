@@ -323,7 +323,7 @@ MonoBehaviour:
   dashtimer: 0
   dashing: 0
   text: {fileID: 4220714129148610406}
-  cloud: {fileID: 6188436264955205429, guid: 3cbdd30c416c57a439bef449cd3e0c71, type: 3}
+  cloud: {fileID: 3172127946859251380, guid: 11885e93618713a4ab056cf930dc8a7a, type: 3}
 --- !u!114 &4488650215578727801
 MonoBehaviour:
   m_ObjectHideFlags: 0

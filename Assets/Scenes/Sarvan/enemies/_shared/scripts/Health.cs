@@ -7,10 +7,12 @@ public class Health : MonoBehaviour {
     //[SerializeField] public GameObject player;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
+    private Color _init;
 
     void Start() {
         _rb = GetComponent<Rigidbody2D>();
-        _sr = GetComponent<SpriteRenderer>(); ;
+        _sr = GetComponent<SpriteRenderer>();
+        _init = _sr.color;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -28,7 +30,7 @@ public class Health : MonoBehaviour {
     private IEnumerator Flash(){
         _sr.color = Color.white;
         yield return new WaitForSeconds(0.05f);
-        _sr.color = Color.red;
+        _sr.color = _init;
         health--;
     }
 

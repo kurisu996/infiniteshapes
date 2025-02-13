@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using Random = System.Random;
 
@@ -28,6 +29,7 @@ public class Movement : MonoBehaviour{
     [SerializeField] private TextMeshProUGUI text;
     //[SerializeField] public TextMeshProUGUI text2;
     [SerializeField] public GameObject cloud;
+    private GameObject cloud1;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -183,16 +185,32 @@ public class Movement : MonoBehaviour{
     }
 
     private IEnumerator Dash(){
+        if (cloud1 != null){
+            Destroy(cloud1);
+        }
         dashing = true;
         _col.isTrigger = true;
         gameObject.tag = "Damage";
-        Instantiate(cloud, transform.position, Quaternion.identity);
+        cloud1 = Instantiate(cloud, transform.position, Quaternion.identity);
+        StartCoroutine(Fade());
         rb.linearVelocity = _movement * 30f;
         dashtimer = 3f;
         yield return new WaitForSeconds(0.15f);
         gameObject.tag = "Player";
         _col.isTrigger = false;
         dashing = false;
+    }
+
+    private IEnumerator Fade(){
+        SpriteRenderer cloudsr = cloud1.GetComponent<SpriteRenderer>();
+        if (cloudsr != null){
+            for (int i = 100; i >= 0; i--){
+                cloudsr.color = new Color(cloudsr.color.r, cloudsr.color.g, cloudsr.color.b, i/1000f);
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+
+        yield return null;
     }
 }
 
