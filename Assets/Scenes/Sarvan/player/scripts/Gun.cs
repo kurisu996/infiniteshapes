@@ -20,12 +20,7 @@ public class Gun : MonoBehaviour {
     
     private void Update() {
         timer -= Time.deltaTime;
-        
-        if (corrupted){
-            rotation = UnityEngine.Random.rotation;
-        } else{
-            rotation = _firingpoint.rotation;
-        }
+        rotation = _firingpoint.rotation;
         if (fastfire){
             firerate = 0.15f / 2f;
         } else {
