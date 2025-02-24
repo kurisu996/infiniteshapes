@@ -1,5 +1,5 @@
 # infiniteshapes
-Teammitglieder: Ege, Darko, David, Andi, Florian
+Teammitglieder: Ege, Darko, Andi, Florian
 
 Unity Version: 6000.0.25f1 (BITTE NICHT NEUER ODER ÄLTER)
 
