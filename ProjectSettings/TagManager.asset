@@ -20,6 +20,7 @@ TagManager:
   - Bouncer
   - Button_Test0
   - Button_Test1
+  - Projectile
   layers:
   - Default
   - TransparentFX
