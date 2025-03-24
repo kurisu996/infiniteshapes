@@ -40,6 +40,7 @@ public class Health : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
             //player.GetComponent<Movement>().victims++;
             Destroy(gameObject);
+            GameObject.Find("Spawner").GetComponent<Spawner>().enemies--;
         }
     }
     

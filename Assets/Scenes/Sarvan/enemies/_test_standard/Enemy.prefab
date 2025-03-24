@@ -166,5 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  player: {fileID: 3580148197943121997, guid: d680371797982c443af881cd261fc9e5, type: 3}
-  n: 0
+  spawner: {fileID: 0}
