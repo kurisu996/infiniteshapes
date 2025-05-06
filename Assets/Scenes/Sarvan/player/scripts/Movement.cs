@@ -27,6 +27,8 @@ public class Movement : MonoBehaviour{
     [SerializeField] public float dashtimer = 0f;
     [SerializeField] public bool dashing = false;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] public float modifier = 1f;
+    [SerializeField] public int enemydeaths = 0;
     //[SerializeField] public TextMeshProUGUI text2;
     [SerializeField] public GameObject cloud;
     private GameObject cloud1;
@@ -103,9 +105,9 @@ public class Movement : MonoBehaviour{
         vel = rb.linearVelocity;
         dashtimer -= Time.deltaTime;
         
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canMove && dashtimer <= 0f){
+        /*if (Input.GetKeyDown(KeyCode.LeftShift) && canMove && dashtimer <= 0f){
             StartCoroutine(Dash());
-        }
+        }*/
 
         if (dashtimer <= 0f){
             text.text = "Dash Active";
@@ -113,8 +115,13 @@ public class Movement : MonoBehaviour{
         else{
             text.text = "";
         }
+
+        if (enemydeaths == 5){
+            enemydeaths = 0;
+            modifier *= 1.1f;
+        }
         
-        //text2.text = "Enemies Killed: " + victims;
+        text.text = "Difficulty Modifier: " + modifier.ToString("0.00");
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
@@ -136,7 +143,7 @@ public class Movement : MonoBehaviour{
             gameObject.GetComponent<Gun>().pierce = false;
         }
 
-        if (collision.gameObject.CompareTag("Enemy") && !invincible){
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Enemy_Square") || collision.gameObject.CompareTag("Enemy_Triangle") && !invincible){
             if (!dashing){
                 StartCoroutine(Death());
             }
@@ -168,6 +175,7 @@ public class Movement : MonoBehaviour{
         canMove = true;
         _collider.enabled = true;
         dead = false;
+        modifier /= 1.1f;
         StartCoroutine(Respawn());
     }
 
@@ -184,7 +192,7 @@ public class Movement : MonoBehaviour{
         invincible = false;
     }
 
-    private IEnumerator Dash(){
+    /*private IEnumerator Dash(){
         if (cloud1 != null){
             Destroy(cloud1);
         }
@@ -199,7 +207,7 @@ public class Movement : MonoBehaviour{
         gameObject.tag = "Player";
         _col.isTrigger = false;
         dashing = false;
-    }
+    }*/
 
     private IEnumerator Fade(){
         SpriteRenderer cloudsr = cloud1.GetComponent<SpriteRenderer>();

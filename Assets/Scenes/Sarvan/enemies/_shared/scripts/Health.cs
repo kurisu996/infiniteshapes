@@ -1,10 +1,11 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Health : MonoBehaviour {
     [SerializeField] public float health;
-    //[SerializeField] public GameObject player;
+    [SerializeField] public static GameObject player;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     private Color _init;
@@ -13,6 +14,7 @@ public class Health : MonoBehaviour {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
         _init = _sr.color;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -40,6 +42,7 @@ public class Health : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
             //player.GetComponent<Movement>().victims++;
             Destroy(gameObject);
+            player.GetComponent<Movement>().enemydeaths++;
             GameObject.Find("Spawner").GetComponent<Spawner>().enemies--;
         }
     }

@@ -8,7 +8,7 @@ public class PlayerDetection : MonoBehaviour{
     public Vector2 dir;
     [SerializeField] private float _dist;
     private GameObject _player;
-    [SerializeField] Image _icon;
+    [SerializeField] public Image _icon;
     public bool sigma;
     
    private void Awake() {
@@ -20,14 +20,14 @@ public class PlayerDetection : MonoBehaviour{
         dir = etp.normalized;
         if (etp.magnitude <= _dist && !_player.GetComponent<Movement>().dead){
             playerDetected = true;
-            StartCoroutine(Flash());
+            //StartCoroutine(Flash());
         } else{
             sigma = false;
             playerDetected = false;
         }
     }
 
-    void LateUpdate(){
+    /*void LateUpdate(){
         _icon.transform.position = transform.position + Vector3.up * 1.25f;
         _icon.transform.rotation = Quaternion.identity;
     }
@@ -39,5 +39,5 @@ public class PlayerDetection : MonoBehaviour{
             _icon.color = new Color(1f, 1f, 1f, 0f);
         }
         sigma = true;
-    }
+    }*/
 }

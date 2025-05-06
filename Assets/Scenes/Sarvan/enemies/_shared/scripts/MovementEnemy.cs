@@ -8,14 +8,34 @@ public class MovementEnemy : MonoBehaviour{
     private PlayerDetection _detection;
     private Vector2 _direction;
     private bool _dirdetermined;
+    private float temp = 1.1f;
     
     private void Awake() {
         _rb = GetComponent<Rigidbody2D>();
         _detection = GetComponent<PlayerDetection>();
+        switch (tag){
+            case "Enemy":
+                speed = 9f;
+                speed_rotation = 100f;
+                break;
+            case "Enemy_Square":
+                speed = 6f;
+                speed_rotation = 4f;
+                break;
+            case "Enemy_Triangle":
+                speed = 8f;
+                speed_rotation = 11f;
+                break;
+        }
     }
 
     
     private void FixedUpdate() {
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().modifier > 2 && Mathf.Abs(GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().modifier - temp) > 0.0001f || Mathf.Abs(GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().modifier - temp) < -0.0001f){
+            speed *= GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().modifier / 2;
+            speed_rotation *= GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().modifier / 2;
+            temp = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().modifier;
+        }
         updateRotation();
         if (_detection.playerDetected){
             updateDirection();
