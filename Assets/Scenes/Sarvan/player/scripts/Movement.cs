@@ -27,11 +27,14 @@ public class Movement : MonoBehaviour{
     [SerializeField] public float dashtimer = 0f;
     [SerializeField] public bool dashing = false;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI stagetext;
     [SerializeField] public float modifier = 1f;
+    [SerializeField] public int stage;
     [SerializeField] public int enemydeaths = 0;
     //[SerializeField] public TextMeshProUGUI text2;
     [SerializeField] public GameObject cloud;
     private GameObject cloud1;
+    [SerializeField] private RectTransform stageTransform;
 
     //[SerializeField] public GameObject player;
     //[SerializeField] public GameObject bullet;
@@ -46,6 +49,7 @@ public class Movement : MonoBehaviour{
         _sr = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
         _col = gameObject.GetComponent<Collider2D>();
+        stage = (int)(modifier);
         // Debug.Log("hi");
     }
 
@@ -119,6 +123,11 @@ public class Movement : MonoBehaviour{
         if (enemydeaths == 5){
             enemydeaths = 0;
             modifier *= 1.1f;
+        }
+
+        if (modifier >= stage + 1){
+            stage = (int) modifier;
+            stagetext.text = "Stage " + stage;
         }
         
         text.text = "Difficulty Modifier: " + modifier.ToString("0.00");
