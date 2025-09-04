@@ -21,6 +21,9 @@ TagManager:
   - Button_Test0
   - Button_Test1
   - Projectile
+  - FastFire_NT
+  - Speed_NT
+  - Pierce_NT
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,12 +10,19 @@ public class Health : MonoBehaviour {
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     private Color _init;
+    [SerializeField] public GameObject speed;
+    [SerializeField] public GameObject fastfire;
+    [SerializeField] public GameObject pierce;
+    public GameObject[] buffs = new GameObject[3];
 
     void Start() {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
         _init = _sr.color;
         player = GameObject.FindGameObjectWithTag("Player");
+        buffs[0] = speed;
+        buffs[1] = fastfire;
+        buffs[2] = pierce;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -41,6 +49,11 @@ public class Health : MonoBehaviour {
             _sr.color = Color.white;
             yield return new WaitForSeconds(0.05f);
             //player.GetComponent<Movement>().victims++;
+            float i = Random.Range(0f, 1f);
+            Debug.Log(i);
+            if (i > 0.95){
+                Instantiate(buffs[Mathf.RoundToInt(Random.Range(0, buffs.Length))], transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
             player.GetComponent<Movement>().enemydeaths++;
             GameObject.Find("Spawner").GetComponent<Spawner>().enemies--;

@@ -303,7 +303,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  player: {fileID: 3580148197943121997, guid: d680371797982c443af881cd261fc9e5, type: 3}
+  speed: {fileID: 937353661225076855, guid: 3ad42ca1c29a5444faebb7ee85e89343, type: 3}
+  fastfire: {fileID: 867144965682796544, guid: 75bb4bf6045bb894d8efa29aa67b4912, type: 3}
+  pierce: {fileID: 696352304521951914, guid: 6af1b00ec94b13245a97e6255fe03731, type: 3}
+  buffs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &9120313576479676601
 GameObject:
   m_ObjectHideFlags: 0

@@ -167,6 +167,10 @@ public class Movement : MonoBehaviour{
         if (collision.gameObject.layer == 3){
             rb.linearVelocity = Vector2.zero;
         }
+
+        if (collision.gameObject.CompareTag("FastFire_NT")){
+            
+        }
     }
 
     private IEnumerator Death(){
@@ -228,6 +232,10 @@ public class Movement : MonoBehaviour{
         }
 
         yield return null;
+    }
+
+    private IEnumerator FastFire(){
+        
     }
 }
 
